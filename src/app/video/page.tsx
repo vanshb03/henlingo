@@ -49,19 +49,19 @@ export function SparklesPreview() {
           console.error('Error accessing webcam:', error);
         }
       };
-  
+
       getMediaStream();
-  
+
       return () => {
-        if (stream) {
-          stream.getTracks().forEach(track => track.stop());
+        if (stream && typeof stream.getTracks === 'function') {
+          (stream as MediaStream).getTracks().forEach((track: MediaStreamTrack) => track.stop());
         }
       };
     }, []);
   
     useEffect(() => {
       if (stream && videoRef.current) {
-        videoRef.current.srcObject = stream;
+        (videoRef.current as HTMLVideoElement).srcObject = stream;
       }
     }, [stream]);
   

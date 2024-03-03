@@ -70,7 +70,7 @@ export default function Component() {
   );
 }
 
-function CheckIcon(props) {
+function CheckIcon(props: any) {
   return (
     <svg
       {...props}
@@ -89,7 +89,7 @@ function CheckIcon(props) {
   );
 }
 
-function FileAudioIcon(props) {
+function FileAudioIcon(props: any) {
   return (
     <svg
       {...props}
@@ -112,7 +112,7 @@ function FileAudioIcon(props) {
   );
 }
 
-function HeartIcon(props) {
+function HeartIcon(props: any) {
   return (
     <svg
       {...props}
@@ -131,7 +131,7 @@ function HeartIcon(props) {
   );
 }
 
-function SettingsIcon(props) {
+function SettingsIcon(props: any) {
   return (
     <svg
       {...props}
