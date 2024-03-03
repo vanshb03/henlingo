@@ -1,9 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/J4S5PCovzF9
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 
@@ -52,12 +46,6 @@ export default function Component() {
             <span className="text-lg">nǐ hǎo 你好!</span>
           </div>
         </div>
-        <div className="mt-8">
-          <Input
-            className="w-full p-4 border-b-2 border-gray-200 text-lg"
-            placeholder="Type in English"
-          />
-        </div>
         <div className="mt-12 bg-green-100 rounded-lg p-4 flex items-center justify-between">
           <CheckIcon className="text-green-500" />
           <span className="text-green-500">Excellent!</span>
@@ -70,7 +58,7 @@ export default function Component() {
   );
 }
 
-function CheckIcon(props) {
+function CheckIcon(props: any) {
   return (
     <svg
       {...props}
@@ -89,7 +77,7 @@ function CheckIcon(props) {
   );
 }
 
-function FileAudioIcon(props) {
+function FileAudioIcon(props: any) {
   return (
     <svg
       {...props}
@@ -112,7 +100,7 @@ function FileAudioIcon(props) {
   );
 }
 
-function HeartIcon(props) {
+function HeartIcon(props: any) {
   return (
     <svg
       {...props}
@@ -131,7 +119,7 @@ function HeartIcon(props) {
   );
 }
 
-function SettingsIcon(props) {
+function SettingsIcon(props: any) {
   return (
     <svg
       {...props}
