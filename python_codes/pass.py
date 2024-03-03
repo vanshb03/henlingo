@@ -1,20 +1,29 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+# from pydantic import BaseModel
+from pymongo import MongoClient
 
 app = FastAPI()
 
-class User(BaseModel):
-    first_name: str
-    last_name: str
-    email: str
-    password: str
+# Connect to MongoDB
+client = MongoClient("mongodb://localhost:27017/")
+db = client["mydatabase"]
+collection = db["users"]
 
 @app.post("/login")
 async def register_user(user: User):
-    # Here, I still need to implement code to store the user information in MongoDB
-    # For demo purposes, i am just returnin the user data FOR NOW!
+    # Store the user information in MongoDB
+    user_data = {
+        "first_name": user.first_name,
+        "last_name": user.last_name,
+        "email": user.email,
+        "password": user.password
+    }
+    collection.insert_one(user_data)
+
+    # For demo purposes, we'll just return the user data
     return user
 
+    
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)

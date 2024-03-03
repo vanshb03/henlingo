@@ -25,9 +25,8 @@ body {
     )
     rgb(var(--background-start-rgb));
   background-image: url('../../public/background.png');
-  background-repeat: repeat; /* Repeat the texture */
-  background-size: 120px 120px; /* Set the size of the texture */
-  backdrop-filter: blur(10px); /* Add a blur effect */
+  background-size: 1748px 1332px; /* Set the size of the texture */
+  backdrop-filter: blur(0px); /* Add a blur effect */
 }
 
 @layer utilities {
