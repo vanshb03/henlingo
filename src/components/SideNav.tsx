@@ -8,7 +8,7 @@ import Link from "next/link";
 
 export default function SideNav() {
   return (
-    <div className="fixed left-0 top-0 h-screen">
+    <div className="flex left-0 top-0 h-screen">
       <div className="h-screen flex flex-col border-r border-gray-200 bg-gray-100 dark:border-gray-800 dark:bg-gray-950 p-4 min-w-[256px]">
         {/* logo */}
         <Link className="flex items-center py-8 pl-4" href="/">
