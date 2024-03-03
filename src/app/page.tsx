@@ -1,8 +1,8 @@
 
 import Link from "next/link"
 import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+// import { Input } from "ui/input"
+// import { Button } from "@/components/component/ui/button"
 
 export default function Component() {
   return (
@@ -247,7 +247,7 @@ export default function Component() {
             <h3 className="text-2xl font-bold">Free</h3>
             <p className="text-sm text-gray-500 dark:text-gray-400">Access to limited content</p>
           </div>
-          <form className="mx-auto max-w-sm space-y-4">
+          {/* <form className="mx-auto max-w-sm space-y-4">
             <div className="grid max-w-xs gap-1.5">
               <Label htmlFor="email">Email Address</Label>
               <Input id="email" placeholder="Enter your email" />
@@ -255,7 +255,7 @@ export default function Component() {
             <Button className="w-full" type="submit">
               Get Started
             </Button>
-          </form>
+          </form> */}
         </div>
       </section>
       <footer className="bg-gray-50/90 border-t border-gray-200 dark:border-gray-800">
