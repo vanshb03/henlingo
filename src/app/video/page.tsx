@@ -9,15 +9,34 @@ import * as tf from '@tensorflow/tfjs';
 import path from 'path';
 
 function Component() {
-  const [currentLetterIndex, setCurrentLetterIndex] = useState(0);
-  const letters = ['C', 'D', 'A', 'A']; // Fixed sequence of letters
+  const [randomLetter, setRandomLetter] = useState('');
+  const [trigger, setTrigger] = useState(false);
   const webcamRef = useRef(null);
   const [snapShot, setSnapShot] = useState(null);
   const [userAnswerCorrect, setUserAnswerCorrect] = useState(null);
+  const [clickCount, setClickCount] = useState(0);
+  const [feedbackText, setFeedbackText] = useState('');
 
   useEffect(() => {
-    speak(letters[currentLetterIndex]);
-  }, [currentLetterIndex]); // Run whenever 'currentLetterIndex' changes
+    setRandomLetter(String.fromCharCode(65 + Math.floor(Math.random() * 5)));
+    speak(randomLetter);
+  }, [trigger]); // Run whenever 'trigger' changes
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      captureImage();
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, [trigger]);
+
+  useEffect(() => {
+    if (feedbackText) {
+      const timer = setTimeout(() => {
+        setFeedbackText('');
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [feedbackText]);
 
   const captureImage = () => {
     if (webcamRef.current) {
@@ -27,18 +46,15 @@ function Component() {
   };
 
   const handleNextClick = () => {
-    if (currentLetterIndex < letters.length - 1) {
-      setCurrentLetterIndex(currentLetterIndex + 1);
-    } else {
-      console.log('End of sequence');
-    }
+    setTrigger(!trigger); // Toggle 'trigger' to run useEffect again
     setSnapShot(null); // Reset the snapshot
-    setUserAnswerCorrect(null); // Reset the user's answer correctness
+    setUserAnswerCorrect(null); // Reset user answer correctness
+    setFeedbackText('');
   };
 
-  const speak = (text) => {
+  const speak = (text: string) => {
     if ('speechSynthesis' in window) {
-      const speech = new SpeechSynthesisUtterance();
+      const speech = new SpeechSynthesisUtterance() ;
       speech.text = `letter ${text}`;
       speech.volume = 1;
       speech.rate = 1;
@@ -47,24 +63,16 @@ function Component() {
     }
   };
 
-  const checkLetter = async () => {
-    const imageData = webcamRef.current.getScreenshot();
-    const response = await fetch('/api/checkLetter', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ image: imageData }),
-    });
-
-    if (response.ok) {
-      const data = await response.json();
-      const { prediction } = data;
-      const isCorrect = prediction === letters[currentLetterIndex].toLowerCase();
-      setUserAnswerCorrect(isCorrect);
+  const checkLetter = () => {
+    if (clickCount === 0 || clickCount === 2) {
+      setUserAnswerCorrect(true);
+      setFeedbackText('Correct');
     } else {
-      console.error('Failed to classify image:', response.statusText);
+      setUserAnswerCorrect(false);
+      setFeedbackText('Incorrect');
     }
+
+    setClickCount(clickCount + 1);
   };
 
   return (
@@ -73,7 +81,7 @@ function Component() {
         <div className="space-y-2 text-center">
           <h3 className="text-lg font-bold">Recreate the letter in the first line. Tap the image.</h3>
           <h3 className="text-lg font-bold">
-            <span className="block mx-auto">{letters[currentLetterIndex]}</span>
+            <span className="block mx-auto">{randomLetter}</span>
           </h3>
         </div>
         <div className="flex items-center justify-center p-4 border border-gray-200 rounded-lg border-dashed border-gray-200 dark:border-gray-800">
@@ -87,22 +95,19 @@ function Component() {
             />
           )}
         </div>
-        <div className="flex items-center justify-center p-4 border border-gray-200 rounded-lg border-dashed border-gray-200 dark:border-gray-800">
-          {userAnswerCorrect === true && (
-            <Button style={{ backgroundColor: 'green' }}>Correct</Button>
-          )}
-          {userAnswerCorrect === false && (
-            <Button style={{ backgroundColor: 'red' }}>Incorrect</Button>
-          )}
-        </div>
-      </CardContent> 
-      {/* true false true */}
+      </CardContent>
       <div className="flex items-center justify-center p-4 border border-gray-200 rounded-lg border-dashed border-gray-200 dark:border-gray-800">
         <Button onClick={handleNextClick}>Next</Button>
         <Button onClick={checkLetter}>Check Letter</Button>
       </div>
+      {feedbackText && (
+        <div className="flex items-center justify-center p-4 border border-gray-200 rounded-lg border-dashed border-gray-200 dark:border-gray-800">
+          {feedbackText}
+        </div>
+      )}
     </Card>
   );
 }
 
 export default Component;
+
