@@ -1,75 +1,53 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
-import { SparklesCore } from "../ui/sparkles";
+import { CardContent, Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import VideoComponent from "@/components/component/VideoComponent";
+import React, { useState, useEffect } from 'react';
 
-export function SparklesPreview() {
-    const [isVisible, setIsVisible] = useState(true);
-  
-    useEffect(() => {
-      const timeout = setTimeout(() => {
-        setIsVisible(false);
-      }, 5000); // 5 seconds
-  
-      return () => clearTimeout(timeout);
-    }, []);
-  
-    return isVisible ? (
-      <div className="h-[40rem] relative w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md">
-        <div className="w-full absolute inset-0 h-screen">
-          <SparklesCore
-            id="tsparticlesfullpage"
-            background="transparent"
-            minSize={0.6}
-            maxSize={1.4}
-            particleDensity={100}
-            className="w-full h-full"
-            particleColor="#FFFFFF"
-          />
-        </div>
-        <h1 className="md:text-7xl text-3xl lg:text-6xl font-bold text-center text-white relative z-20">
-          HENLINGO
-        </h1>
-      </div>
-    ) : (
-      <VideoComponent />
-    );
-  }
-  
-  const VideoComponent = () => {
-    const videoRef = useRef(null);
-    const [stream, setStream] = useState(null);
-  
-    useEffect(() => {
-      const getMediaStream = async () => {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-          setStream(stream);
-        } catch (error) {
-          console.error('Error accessing webcam:', error);
-        }
-      };
+function Component() {
+  const [randomLetter, setRandomLetter] = useState('');
+  const [trigger, setTrigger] = useState(false);
 
-      getMediaStream();
+  useEffect(() => {
+    setRandomLetter(String.fromCharCode(65 + Math.floor(Math.random() * 5)));
+  }, [trigger]); // Run whenever 'trigger' changes
 
-      return () => {
-        if (stream && typeof stream.getTracks === 'function') {
-          (stream as MediaStream).getTracks().forEach((track: MediaStreamTrack) => track.stop());
-        }
-      };
-    }, []);
-  
-    useEffect(() => {
-      if (stream && videoRef.current) {
-        (videoRef.current as HTMLVideoElement).srcObject = stream;
-      }
-    }, [stream]);
-  
-    return (
-      <div>
-        <video ref={videoRef} autoPlay playsInline />
-      </div>
-    );
+  const handleNextClick = () => {
+    setTrigger(!trigger); // Toggle 'trigger' to run useEffect again
+    speak(randomLetter);
   };
-  
-  export default SparklesPreview;
+
+  const speak = (text: string) => {
+    if ('speechSynthesis' in window) {
+      const speech = new SpeechSynthesisUtterance();
+      speech.text = `letter ${text}`;
+      speech.volume = 1;
+      speech.rate = 1;
+      speech.pitch = 1;
+      window.speechSynthesis.speak(speech);
+    }
+  };
+
+  return (
+    <Card className="w-full max-w-screen-lg mx-auto">
+      <CardContent className="space-y-4">
+        <div className="space-y-2 text-center">
+          <h3 className="text-lg font-bold">Recreate the letter in the first line. Tap the image.</h3>
+          <h3 className="text-lg font-bold">
+            <span className="block mx-auto">{randomLetter}</span>
+          </h3>
+        </div>
+        <div className="flex items-center justify-center p-4 border border-gray-200 rounded-lg border-dashed border-gray-200 dark:border-gray-800">
+          <VideoComponent />
+        </div>
+      </CardContent>
+      <div className="flex items-center justify-center p-4 border border-gray-200 rounded-lg border-dashed border-gray-200 dark:border-gray-800">
+        <Button onClick={handleNextClick}>Next</Button>
+      </div>
+    </Card>
+  );
+}
+
+export default Component;
+
