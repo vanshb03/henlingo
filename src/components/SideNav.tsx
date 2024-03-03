@@ -91,8 +91,8 @@ function HomeIcon(props: any) {
       />
       <path
         opacity="0.5"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M13.1558 23.1111C13.1558 22.522 13.6333 22.0444 14.2224 22.0444H18.4891C19.0782 22.0444 19.5558 22.522 19.5558 23.1111C19.5558 23.7002 19.0782 24.1778 18.4891 24.1778H14.2224C13.6333 24.1778 13.1558 23.7002 13.1558 23.1111Z"
         fill="#945151"
       />
@@ -118,14 +118,14 @@ function PracticeIcon(props: any) {
       viewBox="0 0 46 46"
       fill="none"
     >
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0)">
         <line
           x1="18.4199"
           y1="25.0669"
           x2="27.0802"
           y2="20.0669"
           stroke="#AFAFAF"
-          stroke-width="3"
+          strokeWidth="3"
         />
         <rect
           x="19.9639"
@@ -292,7 +292,7 @@ function SettingsIcon(props: any) {
         r="19"
         fill="#CE82FF"
         stroke="#CE82FF"
-        stroke-width="2"
+        strokeWidth="2"
       />
       <circle cx="15" cy="23" r="2" fill="white" />
       <circle cx="23" cy="23" r="2" fill="white" />
