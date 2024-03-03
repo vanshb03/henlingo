@@ -1,11 +1,20 @@
-@tailwind base;
+@import url("https://db.onlinewebfonts.com/c/ab596f21664c5582567537d241e2a53e?family=DIN+Next+Rounded+LT+W01+Regular");
+/* font-family: "DIN Next Rounded LT W01 Regular"; */
+
+@import url("https://db.onlinewebfonts.com/c/14936bb7a4b6575fd2eee80a3ab52cc2?family=Feather+Bold");
+/* font-family: "Feather Bold"; */
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
 @tailwind components;
 @tailwind utilities;
+@tailwind base;
 
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  font-family: "DIN Next Rounded LT W01 Regular", "Nunito";
 }
 
 /* @media (prefers-color-scheme: dark) {
