@@ -95,7 +95,8 @@ function Component() {
             <Button style={{ backgroundColor: 'red' }}>Incorrect</Button>
           )}
         </div>
-      </CardContent>
+      </CardContent> 
+      {/* true false true */}
       <div className="flex items-center justify-center p-4 border border-gray-200 rounded-lg border-dashed border-gray-200 dark:border-gray-800">
         <Button onClick={handleNextClick}>Next</Button>
         <Button onClick={checkLetter}>Check Letter</Button>
