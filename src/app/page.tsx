@@ -14,8 +14,8 @@ export default function Component() {
         <h2 className="font-feather-bold text-4xl text-[#6BA6FF]">henlingo</h2>
       </Link>
       {/* hero section */}
-      <div className="flex py-12 mx-60 space-evenly gap-10">
-        <div className="">
+      <div className="flex flex-row pt-24 mx-60 justify-evenly">
+        <div className="flex ">
           <Image
             src="/chic3nakey.png"
             width={400}
@@ -25,7 +25,8 @@ export default function Component() {
         </div>
         <div className="flex flex-col items-start justify-center h-full pt-10 gap-10">
           <span className="din-rounded font-bold text-eel text-4xl text-center max-w-82  whitespace-normal">
-            The fun way to learn American Sign Language!
+            The fun way to learn <br />
+            American Sign Language!
           </span>
           <div className="flex items-center justify-center w-full">
             <Button

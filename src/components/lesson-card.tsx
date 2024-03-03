@@ -17,9 +17,15 @@ export function LessonCard() {
           <div className="flex flex-col text-white gap-4">
             <h2 className="text-4xl font-bold">Lesson 1</h2>
             <div className="flex">
-              <Button
+              {/* <Button
                 onClick={() => router.push("/home/lesson/1")}
                 className="bg-wing-overlay drop-shadow-2xl hover:bg-feather-green px-4 py-2"
+              >
+                Start
+              </Button> */}
+              <Button
+                onClick={() => router.push("/home/lesson/1")}
+                className="bg-wing-overlay drop-shadow-2xl hover:bg-feather-green text-white border-green py-4 px-20 rounded-lg din-rounded font-bold text-xl  border-2 max-w-40 border-mask-green"
               >
                 Start
               </Button>
@@ -37,7 +43,7 @@ export function LessonCard() {
           <div className="flex flex-col text-white gap-4">
             <h2 className="text-4xl font-bold">Lesson 2</h2>
             <div className="flex gap-4">
-              <LockIcon className="h-8 w-8 text-black" />
+              <LockIcon className="h-8 w-8 text-eel" />
               <h2 className="text-2xl font-bold"> Locked</h2>
             </div>
           </div>
@@ -54,7 +60,7 @@ export function LessonCard() {
           <div className="flex flex-col text-white gap-4">
             <h2 className="text-4xl font-bold">Lesson 3</h2>
             <div className="flex gap-4">
-              <LockIcon className="h-8 w-8 text-black" />
+              <LockIcon className="h-8 w-8 text-eel" />
               <h2 className="text-2xl font-bold"> Locked</h2>
             </div>
           </div>
@@ -71,7 +77,7 @@ export function LessonCard() {
           <div className="flex flex-col text-white gap-4">
             <h2 className="text-4xl font-bold">Lesson 4</h2>
             <div className="flex gap-4">
-              <LockIcon className="h-8 w-8 text-black" />
+              <LockIcon className="h-8 w-8 text-eel" />
               <h2 className="text-2xl font-bold"> Locked</h2>
             </div>
           </div>
@@ -88,7 +94,7 @@ export function LessonCard() {
           <div className="flex flex-col text-white gap-4">
             <h2 className="text-4xl font-bold">Lesson 5</h2>
             <div className="flex gap-4">
-              <LockIcon className="h-8 w-8 text-black" />
+              <LockIcon className="h-8 w-8 text-eel" />
               <h2 className="text-2xl font-bold"> Locked</h2>
             </div>
           </div>
