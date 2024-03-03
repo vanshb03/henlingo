@@ -23,6 +23,10 @@ const config = {
     },
     extend: {
       colors: {
+        "mask-green": "#89e219",
+        "feather-green": "#58cc02",
+        "wing-overlay": "#43c000",
+        eel: "#4b4b4b",
         iguana: "rgb(221, 244, 255)",
         "blue-jay": "rgb(132, 216, 255)",
         wolf: "rgb(119, 119, 119)",
