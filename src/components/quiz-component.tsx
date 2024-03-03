@@ -32,7 +32,7 @@ export function QuizComponent() {
         <div className="mt-12 text-center text-2xl font-semibold">
           Write this in English
         </div>
-        <div className="mt-8 flex flex-col items-center">
+        <div className="mt-8 flex flex-col items-center w-fu">
           <img
             alt="Character"
             className="w-24 h-24"

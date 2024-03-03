@@ -14,18 +14,20 @@ export function QuizCard() {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen flex-grow">
       <div className="flex flex-col items-center h-full space-y-4 flex-grow px-16 pt-8 gap-4 overflow-auto">
         <h1 className="text-6xl font-bold text-eel">Test your knowledge!</h1>
         <div className="flex items-center justify-between bg-[#6BA6FF] p-4 rounded-lg min-w-[700px] max-w-[800px] min-h-[200px] px-24">
           <div className="flex flex-col text-white gap-4">
             <h2 className="text-4xl font-bold">Quiz 1</h2>
-            <Button
-              onClick={() => router.push("/home/quiz/1")}
-              className="bg-wing-overlay drop-shadow-2xl hover:bg-feather-green "
-            >
-              Start
-            </Button>
+            <div className="">
+              <Button
+                onClick={() => router.push("/home/lesson/1")}
+                className="bg-wing-overlay drop-shadow-2xl hover:bg-feather-green "
+              >
+                Start
+              </Button>
+            </div>
           </div>
           <Image
             src="/chic1nakey.png"
