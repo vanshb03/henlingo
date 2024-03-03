@@ -11,7 +11,7 @@ const config = {
   prefix: "",
   theme: {
     fontFamily: {
-      "din-rounded": "'DIN Next Rounded LT W01 Regular'",
+      "din-rounded": "'DIN Next Rounded LT', 'Nunito'",
       "feather-bold": "'Feather Bold'",
     },
     container: {
@@ -23,6 +23,11 @@ const config = {
     },
     extend: {
       colors: {
+        iguana: "rgb(221, 244, 255)",
+        "blue-jay": "rgb(132, 216, 255)",
+        wolf: "rgb(119, 119, 119)",
+        macaw: "rgb(28,176,246)",
+        hover: "#D0DEE4",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
