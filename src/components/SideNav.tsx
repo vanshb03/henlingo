@@ -20,7 +20,7 @@ export default function SideNav() {
         <nav className="flex flex-col">
           <ul className="flex flex-col gap-2">
             {/* home */}
-            <Link href="/home">
+            <Link href="/home/lesson">
               <li className="flex rounded-[12px] bg-iguana border-blue-jay text-macaw border-2 px-2 py-1 min-h-[40px]">
                 <div className="flex mr-[20px] w-[36px] h-[36px]">
                   <HomeIcon className="pl-[6px] w-[36px] h-[36px]" />
@@ -31,14 +31,16 @@ export default function SideNav() {
               </li>
             </Link>
             {/* practice */}
-            <li className="flex rounded-[12px] text-wolf px-2 py-1 min-h-[40px] hover:bg-hover">
-              <div className="flex mr-[20px] w-[36px] h-[36px]">
-                <PracticeIcon className="pl-[6px] w-[36px] h-[36px]" />
-              </div>
-              <span className="flex items-center font-din-rounded font-bold text-[15px] tracking-[0.8px]">
-                PRACTICE
-              </span>
-            </li>
+            <Link href="/home/quiz">
+              <li className="flex rounded-[12px] text-wolf px-2 py-1 min-h-[40px] hover:bg-hover">
+                <div className="flex mr-[20px] w-[36px] h-[36px]">
+                  <PracticeIcon className="pl-[6px] w-[36px] h-[36px]" />
+                </div>
+                <span className="flex items-center font-din-rounded font-bold text-[15px] tracking-[0.8px]">
+                  PRACTICE
+                </span>
+              </li>
+            </Link>
             {/* Leaderboard */}
             <li className="flex rounded-[12px] text-wolf px-2 py-1 min-h-[40px] hover:bg-hover">
               <div className="flex mr-[20px] w-[36px] h-[36px]">

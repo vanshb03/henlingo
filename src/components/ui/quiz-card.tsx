@@ -7,16 +7,14 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
-export function LessonCard() {
+export function QuizCard() {
   return (
     <div className="flex flex-col h-screen">
       <div className="flex flex-col items-center h-full space-y-4 flex-grow px-16 pt-8 gap-4 overflow-auto">
-        <h1 className="text-6xl font-bold text-eel">
-          Learn American Sign Language
-        </h1>
+        <h1 className="text-6xl font-bold text-eel">Test your knowledge!</h1>
         <div className="flex items-center justify-between bg-[#6BA6FF] p-4 rounded-lg min-w-[700px] max-w-[800px] min-h-[200px] px-24">
           <div className="flex flex-col text-white gap-4">
-            <h2 className="text-4xl font-bold">Lesson 1</h2>
+            <h2 className="text-4xl font-bold">Quiz 1</h2>
             <Button className="bg-wing-overlay drop-shadow-2xl hover:bg-feather-green ">
               Start
             </Button>
@@ -31,7 +29,7 @@ export function LessonCard() {
 
         <div className="flex items-center justify-between bg-gray-400 p-4 rounded-lg min-w-[700px] max-w-[800px] min-h-[200px] px-24">
           <div className="flex flex-col text-white gap-4">
-            <h2 className="text-4xl font-bold">Lesson 2</h2>
+            <h2 className="text-4xl font-bold">Quiz 2</h2>
             <div className="flex gap-4">
               <LockIcon className="h-8 w-8 text-black" />
               <h2 className="text-2xl font-bold"> Locked</h2>
@@ -48,7 +46,7 @@ export function LessonCard() {
 
         <div className="flex items-center justify-between bg-gray-400 p-4 rounded-lg min-w-[700px] max-w-[800px] min-h-[200px] px-24">
           <div className="flex flex-col text-white gap-4">
-            <h2 className="text-4xl font-bold">Lesson 3</h2>
+            <h2 className="text-4xl font-bold">Quiz 3</h2>
             <div className="flex gap-4">
               <LockIcon className="h-8 w-8 text-black" />
               <h2 className="text-2xl font-bold"> Locked</h2>
@@ -65,7 +63,7 @@ export function LessonCard() {
 
         <div className="flex items-center justify-between bg-gray-400 p-4 rounded-lg min-w-[700px] max-w-[800px] min-h-[200px] px-24">
           <div className="flex flex-col text-white gap-4">
-            <h2 className="text-4xl font-bold">Lesson 4</h2>
+            <h2 className="text-4xl font-bold">Quiz 4</h2>
             <div className="flex gap-4">
               <LockIcon className="h-8 w-8 text-black" />
               <h2 className="text-2xl font-bold"> Locked</h2>
@@ -82,7 +80,7 @@ export function LessonCard() {
 
         <div className="flex items-center justify-between bg-gray-400 p-4 rounded-lg min-w-[700px] max-w-[800px] min-h-[200px] px-24">
           <div className="flex flex-col text-white gap-4">
-            <h2 className="text-4xl font-bold">Lesson 5</h2>
+            <h2 className="text-4xl font-bold">Quiz 5</h2>
             <div className="flex gap-4">
               <LockIcon className="h-8 w-8 text-black" />
               <h2 className="text-2xl font-bold"> Locked</h2>
