@@ -9,17 +9,6 @@ export default function Component() {
         <div className="flex justify-between items-center">
           <SettingsIcon className="text-gray-400" />
           <div className="ml-4" />
-          {/* <Progress
-            className="w-full h-2 bg-gray-200 rounded-full overflow-hidden"
-            value={50}
-          >
-            <div
-              className="h-full bg-green-500"
-              style={{
-                width: "50%",
-              }}
-            />
-          </Progress> */}
           <Progress value={33} />
           <div className="flex items-center ml-4">
             <HeartIcon className="text-red-500" />
