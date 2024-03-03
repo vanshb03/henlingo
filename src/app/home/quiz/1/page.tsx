@@ -1,11 +1,8 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/J4S5PCovzF9
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+
 
 // EDIT THIS PAGE @VANSH
 export default function Component() {
@@ -15,17 +12,6 @@ export default function Component() {
         <div className="flex justify-between items-center">
           <SettingsIcon className="text-gray-400" />
           <div className="ml-4" />
-          {/* <Progress
-            className="w-full h-2 bg-gray-200 rounded-full overflow-hidden"
-            value={50}
-          >
-            <div
-              className="h-full bg-green-500"
-              style={{
-                width: "50%",
-              }}
-            />
-          </Progress> */}
           <Progress value={33} />
           <div className="flex items-center ml-4">
             <HeartIcon className="text-red-500" />
