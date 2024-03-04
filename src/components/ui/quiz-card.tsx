@@ -16,7 +16,7 @@ export function QuizCard() {
             <h2 className="text-4xl font-bold">Quiz 1</h2>
             <div className="">
               <Button
-                onClick={() => router.push("/home/quiz/1")}
+                onClick={() => router.push("/video")}
                 className="bg-wing-overlay drop-shadow-2xl hover:bg-feather-green text-white border-green py-4 px-20 rounded-lg din-rounded font-bold text-xl  border-2 max-w-40 border-mask-green"
               >
                 Start

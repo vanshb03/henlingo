@@ -130,14 +130,14 @@ export default function Page() {
         </Carousel>
 
         <Button
-          onClick={() => router.push("/home/quiz")}
+          onClick={() => router.push("/home/lesson")}
           className="bg-[#6BA6FF] text-white py-6 px-20 rounded-lg din-rounded font-bold text-xl hover:bg-[#2b70c9] border-2 border-[#2b70c9] drop-shadow-2xl max-w-60"
         >
           Finished
         </Button>
 
         <Button
-          onClick={() => router.push("/home/quiz/1")}
+          onClick={() => router.push("/video")}
           className="bg-wing-overlay drop-shadow-2xl hover:bg-feather-green text-white border-green py-6 px-20 rounded-lg din-rounded font-bold text-xl  border-2 max-w-60 border-mask-green"
         >
           Ready to test?
